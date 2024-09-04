@@ -20,20 +20,3 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: |
-            apt-get -y update
-            apt-get install -y nginx
-            systemctl start nginx
-            systemctl enable nginx
-            cd /home/newuser
-            mv * /var/www/html
-
-    - name: SSH Deploy on AWS EC2
-      uses: easingthemes/ssh-deploy@v2.1.4
-      env:
-        SSH_USER: ${{ secrets.USERNAME }}
-        SSH_PASSWORD: ${{ secrets.PASSWORD }}
-        SSH_HOST: ${{ secrets.HOST }}
-        SSH_PORT: ${{ secrets.PORT }}
-        SOURCE: "./"
-        TARGET: ${{ secrets.TARGET }}
