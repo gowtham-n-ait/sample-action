@@ -20,5 +20,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        Target: ${{ secrets.TARGET }}
         script: 'cd /var/www/html && ls -ltr'
