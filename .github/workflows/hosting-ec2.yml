@@ -21,12 +21,12 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-            sudo apt-get -y update
-            sudo apt-get install -y nginx
-            sudo systemctl start nginx
-            sudo systemctl enable nginx
+            apt-get -y update
+            apt-get install -y nginx
+            systemctl start nginx
+            systemctl enable nginx
             cd /home/newuser
-            sudo mv * /var/www/html 
+            mv * /var/www/html 
 
     - name: SSH Deploy on AWS EC2
       uses: easingthemes/ssh-deploy@v2.1.4
