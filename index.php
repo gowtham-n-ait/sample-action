@@ -1,1 +1,1 @@
-<h1>this is PHP file</h1>
+<h1>This is PHP file</h1>
