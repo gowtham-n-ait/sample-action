@@ -11,18 +11,10 @@ jobs:
 
     steps:
     - name: Configure AWS credentials with IAM Role
-      uses: aws-actions/configure-aws-credentials@v3
+      uses: aws-actions/configure-aws-credentials@v2
       with:
         role-to-assume: arn:aws:iam::905418336942:role/ec2-github-demo
         aws-region: us-east-1
-
-    - name: Open port 22 in the security group
-      run: |
-        aws ec2 authorize-security-group-ingress \
-          --group-id ${{ secrets.SECURITY_GROUP_ID }} \
-          --protocol tcp \
-          --port 22 \
-          --cidr 0.0.0.0/0
         
     - name: Execute remote SSH commands using password
       uses: appleboy/ssh-action@v0.1.3
